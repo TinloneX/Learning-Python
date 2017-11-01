@@ -26,25 +26,31 @@ class Cat(Animal):
         print('Cat run & jump')  # 象形意义：猫跟（其他）动物跑的方式不一样
 
 
-animal = Animal()
-dog = Dog()
-cat = Cat()
-
-animal.run()
-dog.run()
-cat.run()
-dog.eat()
-cat.eat()
-print('dog is Animal ?', isinstance(dog, Animal))
-print('animal is Dog ?', isinstance(animal, Dog))
-print('dog is Dog ?', isinstance(dog, Dog))
-print('dog is Cat ?', isinstance(dog, Cat))
+class Husky(Dog):
+    def stare(self):
+        print('Husky is staring at you...')
 
 
 def someone_run(someone):
     someone.run()
 
 
-someone_run(animal)
-someone_run(dog)
-someone_run(cat)
+animal = Animal()  # 供外部引用
+dog = Dog()
+cat = Cat()
+haha = Husky()
+
+
+if __name__ == '__main__':  # 仅本类测试执行
+    animal.run()
+    dog.run()
+    cat.run()
+    dog.eat()
+    cat.eat()
+    print('dog is Animal ?', isinstance(dog, Animal))
+    print('animal is Dog ?', isinstance(animal, Dog))
+    print('dog is Dog ?', isinstance(dog, Dog))
+    print('dog is Cat ?', isinstance(dog, Cat))
+    someone_run(animal)
+    someone_run(dog)
+    someone_run(cat)
