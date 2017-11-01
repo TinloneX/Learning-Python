@@ -9,7 +9,7 @@ from util import p
 from types import MethodType
 
 
-class Humen(object):
+class Human(object):
     pass
 
 
@@ -31,17 +31,17 @@ def stand(self, bol):  # 此处注意，无论self有无用到，都需要存在
         p('someone not stand')
 
 
-h1 = Humen()
+h1 = Human()
 h1.gender = 'man'
 p(hasattr(h1, 'gender'))  # h1 添加了gender属性
-h2 = Humen()
+h2 = Human()
 p(hasattr(h2, 'gender'))  # h2 并没有gender属性
 h1.set_age = MethodType(set_age, h1)  # 为h1添加方法
 h1.set_age(23)
-Humen.where = where  # 为类绑定方法
+Human.where = where  # 为类绑定方法
 h2.where('China')  # 即使是已经创建的实例也可访问绑定的方法
 # h2.stand(True)  # 不能使用没有绑定的方法，即使之后绑定了，这也是不符合逻辑的
-Humen.stand = stand
+Human.stand = stand
 h1.stand(True)
 
 
