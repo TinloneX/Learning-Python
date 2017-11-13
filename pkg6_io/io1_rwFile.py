@@ -75,7 +75,7 @@ def __reset():
 
 
 m = {'Y': True, 'N': False}
-b = input('是否回复文件内容（reset fils）？(y/n)')
+b = input('是否恢复文件内容（reset fils）？(y/n)')
 t = str(b).upper()
 if t == 'Y' or t == 'N':
     if m[t]:
