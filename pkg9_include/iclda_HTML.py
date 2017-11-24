@@ -44,8 +44,10 @@ parser.feed('''<html>
 </body></html>''')
 
 
-class TestParser(HTMLParser):
+class TParser(HTMLParser):
     def __init__(self):
+        # 显示调用父类初始化，避免'TParser' object has no attribute 'rawdata'错误
+        super(TParser, self).__init__()
         self.time = []
         self.place = []
         self.event = []
@@ -72,14 +74,13 @@ class TestParser(HTMLParser):
             self.__event = False
 
 
-parser = TestParser()
-with request.urlopen('https://www.python.org/events/python-events/') as resp:
-    te = resp.read()
-    html = str(te)
+parser = TParser()
+req = request.Request('https://www.python.org/events/python-events/')
+with request.urlopen(req) as resp:
+    html = str(resp.read(), encoding='utf-8')
+    # p(html)
     parser.feed(html)
 
 p(parser.time)
 p(parser.place)
 p(parser.event)
-
-
