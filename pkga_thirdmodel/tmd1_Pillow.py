@@ -57,3 +57,6 @@ for z in range(4):
 
 image = image.filter(ImageFilter.BLUR)
 image.save('../assets/code.jpg', 'jpeg')
+
+
+
