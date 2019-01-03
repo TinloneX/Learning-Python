@@ -17,8 +17,8 @@ def power(x):
     return x ** 2
 
 
-def power(x, n):  # 并不存在java中狭义的方法重载，同名方法会被覆盖
-    return x ** n
+# def power(x, n):  # 并不存在java中狭义的方法重载，同名方法会被覆盖
+    # return x ** n
 
 
 def power2(x, n=2):  # n=2 为默认参数的写法，即若只传 x ，则 n 默认为2
@@ -44,10 +44,10 @@ def enroll(name, gender, age=6, city='beijing'):
 
 print(area_circle(6))
 # print power(3) 会报错
-#  File "F:/pythonDemo/test1/pkg1_base/class2_function.py", line 38, in <module>
+#  File "F:/pythonDemo/test1/pkg1_base/class2_function.py", line 46, in <module>
 #    print power(3)
 # TypeError: power() takes exactly 2 arguments (1 given)
-print(power(5, 3))
+# print(power(5, 3))
 print(power2(3))
 print(power2(5, 3))
 print(appd())

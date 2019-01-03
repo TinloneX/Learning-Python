@@ -26,10 +26,10 @@ def count():
     fs = []
     for i in range(1, 4):
         def f():
+            print("aaa~%d" % i) # 想想为什么i总是3 
             return i * i
-
         fs.append(f)
-    return fs
+    return fs[0],fs[1],fs[2]
 
 
 f1, f2, f3 = count()
@@ -43,10 +43,7 @@ def count2():
 
         return g
 
-    fs = []
-    for i in range(1, 4):
-        fs.append(f(i))
-    return fs
+    return (f(i) for i in range(1,4))
 
 
 f4, f5, f6 = count2()

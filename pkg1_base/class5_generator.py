@@ -18,14 +18,16 @@ for n in g:
 # 斐波拉契数列（Fibonacci）
 def fib(m):
     s, a, b = 0, 0, 1
+    L = []
     while s < m:
-        print(b)
+        L.append(b)
         a, b = b, a + b  # 相当于t = (b, a + b)    a = t[0]    b = t[1]
         s = s + 1
+    print(L)
 
 
-# 生成长度为10的斐波拉契数列
-fib(10)
+# 生成长度为6的斐波拉契数列
+fib(6)
 
 
 # 斐波拉契数列（Fibonacci）
@@ -40,8 +42,10 @@ def fib2(m):
 
 
 gf = fib2(6)  # 类型为生成器
+L = []
 for x in gf:
-    print(x)
+    L.append(x)
+print(L)
 
 
 def fib3(m):
@@ -50,7 +54,7 @@ def fib3(m):
         yield b
         a, b = b, a + b  # 相当于t = (b, a + b)    a = t[0]    b = t[1]
         s = s + 1
-    return 'dresult'  # 使用yield 的函数无法直接拿到返回值，必须捕获StopIteration错误，返回值包含在StopIteration的value中
+    return 'result'  # 使用yield 的函数无法直接拿到返回值，必须捕获StopIteration错误，返回值包含在StopIteration的value中
 
 
 gf2 = fib3(3)
@@ -63,7 +67,7 @@ while True:
         break
 
 
-# 设计实现杨辉三角(控制总阶数)（不安全）
+# 设计实现杨辉三角(控制总阶数)
 def yh(step):
     result, temp, i, count = [1], [1], 0, 0  # 原始算法count从1起，为保证阶数与运算次数一致，更正为以0作为起始
     while count < step:  # 保证每阶运算执行
@@ -97,13 +101,14 @@ def yhx():
     while True:
         yield result
         # 算法解释：
-        # 最后一位拼接0生成临时集合代表本位元素，并保证最后一位计算值为1
-        # 第一位拼接0生成临时集合代表后位元素，并保证第一位计算值为1
+        # 数组左移1位补0：最后一位拼接0生成临时集合代表本位元素，保证最后一位计算值为1
+        # 数组右移1位补0：第一位拼接0生成临时集合代表后位元素，保证第一位计算值为1
+        # 两数组按位相加得新一行
         # i 自0 至 原集合长度+ 1，代表每阶长度增加1
         result = [(result + [0])[i] + ([0] + result)[i] for i in range(len(result) + 1)]
 
 
-b = yhx()  # 若使用for in 循环遍历需注意为循环加阀，否则将无限制运算
+b = yhx()  # 若使用for in 循环遍历需注意为循环加阈，否则将无限制运算
 print(next(b))
 print(next(b))
 print(next(b))

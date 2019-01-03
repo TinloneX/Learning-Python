@@ -13,7 +13,7 @@ classmates.append('tony')  # 类似List.add(Object)
 print(classmates)
 classmates.insert(1, 'piano')  # 类似List.add(index,Object)
 print(classmates)
-classmates.pop()  # 类似List.remove(lastIndex)
+print(classmates.pop())  # 类似List.remove(lastIndex)
 print(classmates)
 classmates.pop(1)  # 类似List.remove(index)
 print(classmates)
@@ -32,20 +32,19 @@ age = 20
 if age > 40:  # 类比于 if(age > 40){}
     print('duang')
 elif age >= 18:  # 类比于 else if(age >= 18){}
-    print('your age is %d, %s' % (age, 'adult'))  # 等同于System.out.println(String.format("*** %d %s",age,"adult"))
+    print('your age is %d, %s' % (age, 'adult'))  # 等同于System.out.println(String.format("*** %d, %s",age,"adult"))
 else:
     print('go back home & do your homework !')
-if []:  # 类比于 new Object[]{}.isEmpty() 或 Array.length >= 0
+if []:  # 类比于 !(new Object[]{}.isEmpty()) 或 Array.length >= 0
     print(False)
-if [1]:  # 类比于 {1}.isEmpty()
+if [1]:  # 类比于 !{1}.isEmpty()
     print(True)
 
 # ---------------------------------------
 by = input('year of birthday:')  # 等待键盘输入，提示语为 *** ***：
 year = int(by)  # 类似于 Integer.parseInt(Object) / Integer.valueOf(Object)
-age = 2017 - year
-if age >= 18:
-    print('your age is %d, %s' % (age, 'adult'))
+age = 2019 - year
+print('your age is %d, %s' % (age, 'adult' if age>=18 else 'child'))
 
 # ---------------------------------------
 for name in classmates:  # 类似于 for-each
@@ -66,12 +65,11 @@ print(total)
 inc = input('0 -> N 累加,N = ')
 num = int(inc)
 zam = 0
-while num > 0:
+while num >= 0:
     zam = zam + num
     num = num - 1
-print
-'0 -> %s 累加,sum = %d' % (inc, zam)
-
+print('0 -> %s 累加,sum = %d' % (inc, zam))
+print("0~999累加：%s" % sum(range(999)))
 # --------dict-----字典------类比于 Map---------#dict的key必须是不可变对象#---------
 dic1 = {'Michael': 95, 'Bob': 75, 'Tracy': 85}  # 类比于 HashMap 中包含三个键值对
 print(dic1)  # 类比于 Map.toString()
@@ -137,8 +135,8 @@ print('执行[1, 2, 3] 或 [4, 2, 3]运算', s2 | s3)
 # TypeError: unhashable type: 'list'
 
 # -----面向对象---------引用与对象-------------------------
-a = ['a', 'b', 68]
-a.sort()  # 类似于 Collections.sort()
+a = ['sa', 'ab', '68']
+a.sort()  # 类似于 Collections.sort() // 若类型则会报错， 例：a = ['sa', 'ab', 68] '<' not supported between instances of 'int' and 'str'
 print("[ 'a', 'b', 68]排序后", a)
 b = 'abc'
 print("b = 'abc' replace新值：", b.replace('a', 'A'))  # 类似于 c = b.replace("a","A") --> c = "Abc",b = "abc"

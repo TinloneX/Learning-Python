@@ -4,7 +4,7 @@
 # python ---> java 类比学习笔记 之 高级特性篇(2)
 # 迭代器（Iterator）
 
-from collections import Iterator
+from collections.abc import Iterator
 
 a = isinstance((x for x in range(10)), Iterator)  # 生成器是迭代器
 print(a)  # True
@@ -16,9 +16,6 @@ print(c)  # False
 d = isinstance(iter([]), Iterator)  # 使用iter（）方法可使Iterable对象转换为Iterator
 print(d)  # True
 e = isinstance(iter('abc'), Iterator)
-print(e)
+print(e)  #True
 print(iter('abc'))  # 对象地址
 print(next(iter('abc')))  # a
-
-for x in [1, 2, 3, 4, 5]:
-    pass

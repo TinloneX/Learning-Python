@@ -7,8 +7,8 @@
 # for in 不仅可以用在list或tuple上，还可以作用在其他可迭代对象上
 # 此处迭代与Java中的迭代器不同，与fori、for-each类似
 
-# 导包
-from collections import Iterable
+# 导包 3.7+版本推荐使用collections.abc
+from collections.abc import Iterable
 import os
 
 # for in 遍历list 或 tuple  (均有下标)
